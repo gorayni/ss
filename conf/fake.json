@@ -1,0 +1,31 @@
+{
+  "src": {
+    "dataset": "UB",
+    "annotations": "da_annotations_ntcir.txt",
+    "categories": "da_categories_ntcir.txt",
+    "fold_dir": "domain_adaptation/ub_ntcir/ub",
+    "data_dir": "data/ubNarrative"
+  },
+  "weights_dir": "weights/domain_adaptation",
+  "results_dir": "results/domain_adaptation",  
+  "gpu_fraction": 0.9,
+  "random_seed": 42,
+  "model": {
+    "network": "xception",  
+    "num_units": 256,
+    "feature_vector_length": 2048,
+    "layers": ["avg_pool"]
+  },
+  "training": {
+    "learning_rate": 0.0001,
+    "num_epochs": 300,
+    "batch_size": 1300,
+    "start_fold": 1,
+    "end_fold": 1,
+    "patience": 100,
+    "regularizer": {
+      "name": "MMD",
+      "l": 1
+     }
+  }
+}
