@@ -13,7 +13,7 @@ export project_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )"/.. >/dev/null && pw
 source $project_dir/scripts/common.sh
 
 #Parsing JSON configuration file
-network=`cat "$conf_file" | jq .model.network | tr -d '"'`
+network=`cat "$conf_file" | jq -r .model.network`
 learning_rate=`cat "$conf_file" | jq .training.learning_rate`
 num_epochs=`cat "$conf_file" | jq .training.num_epochs`
 
